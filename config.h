@@ -16,7 +16,7 @@ static int borderpx = 2;
  * 4: value of shell in /etc/passwd
  * 5: value of shell in config.h
  */
-static char *shell = "/bin/sh";
+static char *shell = "/usr/bin/zsh";
 char *utmp = NULL;
 char *stty_args = "stty raw pass8 nl -echo -iexten -cstopb 38400";
 
@@ -111,8 +111,10 @@ static const char *colorname[] = {
 
 	/* more colors can be added after 255 to use with DefaultXX */
 	"#cccccc",
-	"#555555",
+	"#000000",
+	"#222222",
 	"black",
+  "#e0412c"
 };
 
 
@@ -120,9 +122,9 @@ static const char *colorname[] = {
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
-unsigned int defaultfg = 7;
+unsigned int defaultfg = 257;
 unsigned int defaultbg = 258;
-static unsigned int defaultcs = 256;
+static unsigned int defaultcs = 260;
 static unsigned int defaultrcs = 257;
 
 /*
@@ -174,7 +176,7 @@ ResourcePref resources[] = {
      { "color15",      STRING,  &colorname[15] },
      { "background",   STRING,  &colorname[256] },
      { "foreground",   STRING,  &colorname[257] },
-     { "cursorColor",  STRING,  &colorname[258] },
+     { "cursorColor",  STRING,  &colorname[0] },
      { "termname",     STRING,  &termname },
      { "shell",        STRING,  &shell },
      { "xfps",         INTEGER, &xfps },
